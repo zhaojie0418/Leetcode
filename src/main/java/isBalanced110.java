@@ -1,3 +1,5 @@
+import tools.TreeNode;
+
 public class isBalanced110 {
     public boolean isBalanced(TreeNode root) {
         //自底向上查找，一旦查找到不平衡的树就立马返回

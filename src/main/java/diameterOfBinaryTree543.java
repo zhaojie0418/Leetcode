@@ -1,3 +1,5 @@
+import tools.TreeNode;
+
 public class diameterOfBinaryTree543 {
     int ans;
     //所谓二叉树的直径是指二叉树中任意两点之间的距离的最大值
