@@ -1,25 +1,33 @@
 public class search33 {
     public int search(int[] nums, int target) {
-        return binarySearch(nums,target,0,nums.length-1);
-    }
-    public int binarySearch(int[] nums, int target,int left, int right){
-        int begin = nums[left];
-        int mid = (right + left)/2;
-        int midNumber = nums[mid];
-        //目标数字在查找位置的右边
-        if(target > midNumber){
-            if(begin < midNumber){
-
-            }else {
-
+        int n = nums.length;
+        if (n == 0) {
+            return -1;
+        }
+        if (n == 1) {
+            return nums[0] == target ? 0 : -1;
+        }
+        int l = 0, r = n - 1;
+        while (l <= r) {
+            int mid = (l + r) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            //关键在于这种特殊二分的情况
+            if (nums[0] <= nums[mid]) { //在左半拉
+                if (nums[0] <= target && target < nums[mid]) {
+                    r = mid - 1; //左左
+                } else {
+                    l = mid + 1;
+                }
+            } else {  //在右半拉
+                if (nums[mid] < target && target <= nums[n - 1]) {
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
             }
         }
-        //目标数字在查找位置的左边
-        else if(target < nums[mid]){
-
-        }else{
-            return mid;
-        }
-        return target;
+        return -1;
     }
 }
