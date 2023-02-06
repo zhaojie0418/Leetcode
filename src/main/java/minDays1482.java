@@ -4,7 +4,7 @@ public class minDays1482 {
         if (count < m * k) {
             return -1;
         }
-
+        //配置idea git
         return m;
     }
 }
