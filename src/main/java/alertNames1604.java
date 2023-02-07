@@ -3,7 +3,7 @@ import java.util.*;
 public class alertNames1604 {
     public List<String> alertNames(String[] keyName, String[] keyTime) {
         Map<String, List<Integer>> timeMap = new HashMap<String, List<Integer>>();
-        int n = keyName.length;
+        int n = keyName.length;  //forchange
         for (int i = 0; i < n; i++) {
             String name = keyName[i]; //这里只使用了name作为key
             String time = keyTime[i];
