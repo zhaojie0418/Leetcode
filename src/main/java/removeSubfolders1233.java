@@ -2,8 +2,10 @@ import java.util.*;
 
 public class removeSubfolders1233 {
     public static void main(String[] args) {
-        String[] strings = {"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"};
-        System.out.println(new removeSubfolders1233().removeSubfolders(strings));
+        String[] strings = {"1231231223","11","112","221"};
+        Arrays.sort(strings);
+        System.out.println(Arrays.toString(strings));
+//        System.out.println(new removeSubfolders1233().removeSubfolders(strings));
     }
     public List<String> removeSubfolders(String[] folder) {
         Arrays.sort(folder, Comparator.comparingInt(String::length));
