@@ -5,21 +5,20 @@ import tools.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class buildTree07 {
+public class buildTree072 {
+    //为了快速获取到根结点对应的值
     private Map<Integer, Integer> indexMap;
-
     public TreeNode myBuildTree(int[] preorder, int[] inorder, int preorder_left, int preorder_right, int inorder_left, int inorder_right) {
         if (preorder_left > preorder_right) {
             return null;
         }
         int inorder_root = indexMap.get(preorder[preorder_left]);
-        TreeNode root = new TreeNode(preorder[preorder_left]);//从一个root结点一点点遍历出来
-        int size_left_subtree = inorder_root - inorder_left;
-        root.left = myBuildTree(preorder, inorder, preorder_left + 1, preorder_left + size_left_subtree, inorder_left, inorder_root - 1);
-        root.right = myBuildTree(preorder, inorder, preorder_left + size_left_subtree + 1, preorder_right, inorder_root + 1, inorder_right);
+        TreeNode root = new TreeNode(preorder[preorder_left]);
+        int sub = inorder_root - inorder_left;
+        root.left = myBuildTree(preorder, inorder,preorder_left+1,preorder_left+sub,inorder_left,inorder_root-1 );
+        root.right = myBuildTree(preorder, inorder, preorder_left + sub + 1, preorder_right, inorder_root + 1, inorder_right);
         return root;
     }
-
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int n = preorder.length;
         // 构造哈希映射，帮助我们快速定位根节点
