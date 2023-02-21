@@ -28,4 +28,18 @@ public class canJump55 {
         }
         return false;
     }
-}
+    public boolean canJump2(int[] nums) {
+        int length = nums.length;
+        if(length==1) return true;
+        int end = 0;
+        int maxPosition = 0;
+        for (int i = 0; i < length - 1; i++) {
+            maxPosition = Math.max(maxPosition, i + nums[i]);//设定此时能够跳转到的最大值
+            if (maxPosition >= length - 1)  return true;
+            if (i == end) end = maxPosition;
+        }
+        return false;
+    }
+
+
+    }
